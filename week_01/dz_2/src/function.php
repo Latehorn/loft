@@ -32,23 +32,33 @@ function task1(array $arrayString, bool $return = true)
 
 function task2(string $token, ...$operand)
 {
+    foreach ($operand as $opera) {
+        if (!is_int($opera) && !is_float($opera)) {
+            trigger_error('Аргумент не является целым или вещественным числом!');
+            return 'ERROR: не верный агрумент';
+        }
+    }
+    $y = implode(" $token ", $operand) . ' = ';
     switch ($token) {
         case '+':
-            return array_sum($operand);
+            return $y . array_sum($operand);
         case '-':
-            return $result = array_shift($operand) - array_sum($operand);
+            return $y . $result = array_shift($operand) - array_sum($operand);
         case '*':
             $one = 1;
             foreach ($operand as $opera) {
                 $one *= $opera;
             }
-            return $one;
+            return $y . $one;
         case '/':
             $out = array_shift($operand);
-            foreach ($operand as $opera) {
+            foreach ($operand as $zero => $opera) {
+                if ($opera == 0) {
+                    trigger_error('На ноль делить нельзя!');
+                }
                 $out /= $opera;
             }
-            return $out;
+            return $y . $out;
         default:
             trigger_error("Не верный оператор");
             return 'ERROR';
@@ -90,6 +100,7 @@ function task6(string $fileName)
     while (!feof($file)) {
         $str .= fgets($file, 1024);
     }
+    fclose($file);
     echo $str;
 }
 
