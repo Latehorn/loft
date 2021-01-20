@@ -7,10 +7,10 @@ task1([1, 2, 6], false);
 echo '<hr>';
 
 //task 2
-echo '1 + 2 + 3 = ' . task2('+', 1, 2, 3) . '<br>';
-echo '1 - 2 - 3 = ' . task2('-', 1, 2, 3) . '<br>';
-echo '1 * 2 * 3 = ' . task2('*', 1, 2, 3) . '<br>';
-echo '1 / 2 / 3 = ' . task2('/', 1, 2, 3) . '<br>';
+echo task2('+', 5, 18, 3) . '<br>';
+echo task2('-', 54, 2, 3) . '<br>';
+echo task2('*', 8, 2, 3) . '<br>';
+echo task2('/', 30, 5, 2) . '<br>';
 echo '<hr>';
 
 //task 3
